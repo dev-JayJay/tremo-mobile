@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
   secondDot: {
     width: 10,
     height: 10,
-    borderRadius: 5,
-    backgroundColor: "#EAEAEA",
+    borderRadius: 50,
+    backgroundColor: "#838383",
   },
   firstDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: "#FFFFFF",
+    width: 14,
+    height: 14,
+    borderRadius: 50,
+    backgroundColor: "#E3E3E3",
   },
   dotContainer: {
     display: "flex",
@@ -83,8 +83,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 400,
     paddingVertical: 10,
-    // paddingLeft: 5,
-    // paddingRight: 5,
   },
   bottomModal: {
     backgroundColor: "#252525",
