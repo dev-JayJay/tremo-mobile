@@ -1,28 +1,39 @@
 import { Logo } from "@/components/shared";
 import { Link, router } from "expo-router";
-import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  Dimensions,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const { width } = Dimensions.get("window");
+const modalWidth = width * 1;
 
 const FirstTab = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#111111F2' }}>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "rgba(17, 17, 17, 0.95)" }}
+    >
       <Logo />
       <Image
-        source={require('../../assets/images/tremo coins Group.png')}
-        // style={styles.image}
+        source={require("../../assets/images/tremo coins Group.png")}
         resizeMode="cover"
-      />
-      {/* <Image
-        source={require('../../assets/images/Groupcoin reflection.png')}
         style={styles.image}
-        resizeMode="cover"
-      /> */}
+      />
       <View style={styles.bottomModal}>
         <Text style={styles.modalHeading}>All your crypto in one place</Text>
         <Text style={styles.modalText}>
           Effortlessly oversee all your cryptocurrency holdings , and monitor
           market trends
         </Text>
+        <View style={styles.dotContainer}>
+          <View style={styles.firstDot}></View>
+          <View style={styles.secondDot}></View>
+        </View>
         <TouchableOpacity
           style={styles.button}
           onPress={() => router.push("/second-tab")}
@@ -39,37 +50,58 @@ const FirstTab = () => {
 export default FirstTab;
 
 const styles = StyleSheet.create({
+  secondDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#EAEAEA",
+  },
+  firstDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#FFFFFF",
+  },
+  dotContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
   modalHeading: {
     paddingTop: 55,
-    paddingBottom: 40,
     color: "white",
     textAlign: "center",
-    fontSize: 26,
-    fontWeight: 500,
+    fontSize: 30,
+    fontWeight: 600,
   },
   modalText: {
     color: "#CCCCCC",
     textAlign: "center",
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: 400,
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingVertical: 10,
+    // paddingLeft: 5,
+    // paddingRight: 5,
   },
   bottomModal: {
-    paddingBottom: 60,
-    paddingLeft: 15,
-    paddingRight: 15,
     backgroundColor: "#252525",
-    width: "100%",
-    height: "55%",
+    width: modalWidth,
     position: "absolute",
     bottom: 0,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
+    left: "50%",
+    transform: [{ translateX: -modalWidth / 2 }],
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    gap: 12,
+    paddingHorizontal: 15,
+    paddingBottom: 40,
   },
   button: {
     width: "100%",
@@ -95,7 +127,9 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   image: {
-    position: 'absolute',
-    top: '30%',
-  }
+    width: "100%",
+    height: 200,
+    marginTop: 40,
+    marginBottom: 20,
+  },
 });
