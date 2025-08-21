@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Link } from "expo-router";
 
 const signUp = () => {
   return (
     <View>
       <Text style={styles.text}>signUp</Text>
+      <Link href={"/(auth)/sign-in"} style={styles.text}>
+        Go to Sign In
+      </Link>
     </View>
   );
 };
@@ -18,4 +22,5 @@ const styles = StyleSheet.create({
     color: "#fff",
     margin: 20,
   },
+  
 });
