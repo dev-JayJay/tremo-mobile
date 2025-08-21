@@ -44,7 +44,7 @@ const SecondTab = () => {
         </View>
         <TouchableOpacity
           style={styles.button}
-          // onPress={() => router.push("/second-tab")}
+          onPress={() => router.push("/sign-up")}
         >
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
