@@ -31,7 +31,7 @@ const signIn = () => {
           <SharedInput icon="" lable="Password" placeholder="* * * * * * " />
           <Text style={styles.fpassword}>Forgot password? </Text>
           <Pressable
-            onPress={() => console.log("pressed")}
+            onPress={() => router.push("/(user)/home")}
             style={styles.loginBtn}
           >
             <Text style={styles.btnText}>Login</Text>

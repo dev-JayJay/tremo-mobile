@@ -1,13 +1,24 @@
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import Home from "./home";
+import Crypto from "./crypto";
+import Wallet from "./wallet";
+import Settings from "./settings";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+const Tab = createBottomTabNavigator();
 
 const UserLayout = () => {
   return (
     <>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="home" options={{ headerShown: false }} />
-      </Stack>
-      <StatusBar style="auto" />
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Tab.Screen name="home" component={Home} />
+        <Tab.Screen name="crypto" component={Crypto} />
+        <Tab.Screen name="wallet" component={Wallet} />
+        <Tab.Screen name="settings" component={Settings} />
+      </Tab.Navigator>
     </>
   );
 };
