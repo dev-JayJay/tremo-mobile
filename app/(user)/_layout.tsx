@@ -1,13 +1,32 @@
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { Tabs } from "expo-router";
+import TabsComponent from "@/components/tab";
+
+const tabs = [
+  { name: "home", title: "Home" },
+  { name: "crypto", title: "Crypto" },
+  { name: "wallet", title: "Wallet" },
+  { name: "settings", title: "Settings" },
+];
 
 const UserLayout = () => {
   return (
     <>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="home" options={{ headerShown: false }} />
-      </Stack>
-      <StatusBar style="auto" />
+      <Tabs
+        tabBar={(props) => <TabsComponent {...props} />}
+        screenOptions={{
+          tabBarActiveTintColor: "#144E32",
+          tabBarInactiveTintColor: "gray",
+          headerTitleAlign: "center",
+        }}
+      >
+        {tabs.map(({ name, title }) => (
+          <Tabs.Screen
+            key={name}
+            name={name}
+            options={{ title, headerShown: false }}
+          />
+        ))}
+      </Tabs>
     </>
   );
 };
