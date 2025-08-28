@@ -1,24 +1,32 @@
-import Home from "./home";
-import Crypto from "./crypto";
-import Wallet from "./wallet";
-import Settings from "./settings";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Tabs } from "expo-router";
+import TabsComponent from "@/components/tab";
 
-const Tab = createBottomTabNavigator();
+const tabs = [
+  { name: "home", title: "Home" },
+  { name: "crypto", title: "Crypto" },
+  { name: "wallet", title: "Wallet" },
+  { name: "settings", title: "Settings" },
+];
 
 const UserLayout = () => {
   return (
     <>
-      <Tab.Navigator
+      <Tabs
+        tabBar={(props) => <TabsComponent {...props} />}
         screenOptions={{
-          headerShown: false,
+          tabBarActiveTintColor: "#144E32",
+          tabBarInactiveTintColor: "gray",
+          headerTitleAlign: "center",
         }}
       >
-        <Tab.Screen name="home" component={Home} />
-        <Tab.Screen name="crypto" component={Crypto} />
-        <Tab.Screen name="wallet" component={Wallet} />
-        <Tab.Screen name="settings" component={Settings} />
-      </Tab.Navigator>
+        {tabs.map(({ name, title }) => (
+          <Tabs.Screen
+            key={name}
+            name={name}
+            options={{ title, headerShown: false }}
+          />
+        ))}
+      </Tabs>
     </>
   );
 };
