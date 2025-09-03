@@ -74,6 +74,6 @@ export const cryptoCoins = [
     price: '678 ADA',
     change: "-12.24%",
     value: "$1,093.34",
-    image: require('../assets/images/ltc.png'),
+    image: require('../assets/images/ada.png'),
   },
 ];

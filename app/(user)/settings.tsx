@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Settings = () => {
   return (
-    <View>
-      <Text>Settings</Text>
-    </View>
-  )
-}
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "rgba(17, 17, 17, 0.95)" }}
+    >
+      <View>
+        <Text style={styles.text}>No Settings Screen Design</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
 
-export default Settings
+export default Settings;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  text: {
+    color: "#fff",
+    fontSize: 25,
+    fontWeight: 500,
+  },
+});

@@ -1,5 +1,6 @@
 import { Logo } from "@/components/shared";
 import { Link, router, useRouter } from "expo-router";
+import { ChevronLeft } from "lucide-react-native";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -21,7 +22,7 @@ const SecondTab = () => {
     >
       <View>
         <Text style={styles.back} onPress={() => router.back()}>
-          Back
+          <ChevronLeft color={'#fff'} size={30} style={styles.backIcon} />
         </Text>
         <Logo />
       </View>
@@ -59,10 +60,13 @@ const SecondTab = () => {
 export default SecondTab;
 
 const styles = StyleSheet.create({
+  backIcon:{
+    zIndex: 40,
+  },
   secondDot: {
     width: 14,
     height: 14,
-    borderRadius: 10,
+    borderRadius: 50,
     backgroundColor: "#E3E3E3",
   },
   firstDot: {
