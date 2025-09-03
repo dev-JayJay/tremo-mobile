@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#111111",
     marginHorizontal: 0,
-    paddingVertical: 30,
+    paddingVertical: 20,
     borderRadius: 0,
     borderTopColor: "#515151",
     borderCurve: "continuous",
@@ -77,6 +77,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },
     shadowRadius: 10,
     shadowOpacity: 0.1,
+    borderColor: "#BFBFBF",
+    borderTopWidth: 0.3,
   },
   tabButton: {
     flex: 1,
