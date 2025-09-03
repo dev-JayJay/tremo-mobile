@@ -28,7 +28,7 @@ const VerifyOtp = () => {
         </Text>
         <Logo />
       </View>
-      <View style={styles.containerLayout}>
+      <View style={showModal ? styles.showModalBg : styles.containerLayout}>
         <View style={styles.textContainer}>
           <Text style={styles.heading}>Authentication</Text>
           <Text style={styles.subHeading}>
@@ -38,9 +38,15 @@ const VerifyOtp = () => {
         <View style={styles.formContainer}>
           <OtpInput
             numberOfDigits={6}
+            focusColor={"#fff"}
             onTextChange={(value: string) =>
               console.log("this are the input entered", value)
             }
+            theme={{
+              pinCodeTextStyle: {
+                color: "#fff",
+              },
+            }}
             type="numeric"
           />
           <Pressable
@@ -63,9 +69,6 @@ const VerifyOtp = () => {
           >
             <Text style={styles.buttonText}>Proceed to login</Text>
           </TouchableOpacity>
-          {/* <Link href="/second-tab" style={styles.skip}>
-            Change email
-          </Link> */}
         </View>
       )}
     </SafeAreaView>
@@ -75,6 +78,11 @@ const VerifyOtp = () => {
 export default VerifyOtp;
 
 const styles = StyleSheet.create({
+  showModalBg: {
+    opacity: 0.1,
+    zIndex: 10,
+    backgroundColor: "#191818ff",
+  },
   button: {
     width: "100%",
     paddingTop: 15,

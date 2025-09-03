@@ -22,13 +22,13 @@ const signUp = () => {
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "rgba(17, 17, 17, 0.95)" }}
     >
-      <View>
+      <View style={showModal ? { opacity: 1 } : { opacity: 0 }}>
         <Text style={styles.back} onPress={() => router.back()}>
           Back
         </Text>
         <Logo />
       </View>
-      <View style={styles.containerLayout}>
+      <View style={showModal ? styles.showModalBg : styles.containerLayout}>
         <View style={styles.textContainer}>
           <Text style={styles.heading}>Sign up ! </Text>
           <Text style={styles.subHeading}>
@@ -86,6 +86,11 @@ const signUp = () => {
 export default signUp;
 
 const styles = StyleSheet.create({
+  showModalBg: {
+    opacity: 0.1,
+    zIndex: 10,
+    backgroundColor: "#191818ff",
+  },
   button: {
     width: "100%",
     paddingTop: 15,
@@ -144,6 +149,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   bottomModal: {
+    zIndex: 50,
     backgroundColor: "#252525",
     width: modalWidth,
     position: "absolute",
